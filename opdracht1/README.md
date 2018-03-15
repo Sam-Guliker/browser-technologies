@@ -25,15 +25,21 @@ I'm not using any custom fonts. I've got the privilege from the google web fonts
 
 
 ## Color
+I've tested my
 The contrast in my design is pretty strong.
-![without color blindness](images/normal.png)![first](images/2.png)![second](images/3.png)
+![without color blindness](images/normal.png)![first](images/2.png)![second](images/3.png)![third](images/4.png)![fourth](images/5.png)![fifth](images/5)![six](images/6.png)
 
 
-## broadband
+## Broadband
+
 ## Cookies
+I'm not using cookies on this page :cross:
 ## localStorage
-## Mouse/Trackpad
 
-## Features
-* [Routie](http://projects.jga.me/routie/)
-* [Handlebars](http://handlebarsjs.com/)
+## Mouse/Trackpad
+The site could use a bit more accessibility working with tabs.  
+And make a better experience for people with a disability.
+
+## Conclusion
+There is a lot to do for improvement for this site.  
+I want to figure out how much of the performance I can adjust.
