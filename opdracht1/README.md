@@ -36,8 +36,10 @@ Compression of the css and javascript will be usefull.
 But we can't compress the images since this is from another party.
 
 ## Cookies
-I'm not using cookies on this page :cross:
+I'm not using cookies on this page
+
 ## localStorage
+I'm not using localStorage so that is fine :smile:
 
 ## Mouse/Trackpad
 The site could use a bit more accessibility working with tabs.  
