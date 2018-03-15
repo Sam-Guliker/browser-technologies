@@ -16,10 +16,10 @@ I will make a list will contain some performance suggestions. `This` is gonna gi
 * Mouse/Trackpad.
 
 ## Images
-The images are coming from an Api, unfortunately its not really useful to compress an incoming code from the third party.
+The images are coming from an Api, unfortunately its not really  useful to compress an incoming code from the third party.
 
 ## Custom Fonts
-I'm not using any custom fonts. I've got the privilege from the google web fonts. :clap:
+I'm not using any custom fonts.  I've got the privilege from the google web fonts. :clap:
 
 ## Javascript
 When you turn off javascript it won't work.  
@@ -32,7 +32,7 @@ The contrast in my design is pretty strong.
 ![without color blindness](images/normal.png)![first](images/2.png)![second](images/3.png)![third](images/4.png)![fourth](images/5.png)![fifth](images/5)![six](images/6.png)
 
 ## Broadband
-Compression of the css and javascript will be usefull.
+Compression of the css and javascript will be useful.  
 But we can't compress the images since this is from another party.
 
 ## Cookies
