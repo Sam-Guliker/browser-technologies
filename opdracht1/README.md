@@ -1,37 +1,135 @@
-# Browser Technologies
-//Robuuste, toegankelijke websites leren bouwen …
+# Gif App.
+This app is made for  _trending_ gifs.
+[Website](https://senmetsu.github.io/wafs/.)
 
-## Opdracht 1 - Progressive Enhancement
-//Het web is voor iedereen. Leren over Progressive enhancement
+## Description
+This app is made for top 10 trending gifs, it will show the trending gifs at this momemnt of time. 
+If you click on the title, you will go to the detail page that will contain some information.
 
-### Opdracht 1.1 - Breek het Web
-Het Web laten 'breken' door features van het platform bewust uit te zetten. Images, custom fonts, JavaScript, kleur, breedband internet, etc. Allemaal met als doel je te laten beseffen hoeveel je nog niet weet van het Web, erachter komen dat je misschien aannames hebt die niet kloppen, en om je je in te laten leven in de eindgebruiker.
+### Trending Page
+![homepage](Trending.png)
 
-Onderzoek minimaal twee features. Dat betekent uitvogelen wat het voor impact heeft op de sites die je kent en normaal gebruikt. Kies sites in je directe omgeving: van je werkgever, lokale vereniging, de cafetaria om de hoek, en/of eerdere projecten die je zelf gedaan hebt.
+### Detail Page
+![detail page](detail.png)
 
-Kies 2 features van de 8
-- Zoek uit welke problemen ze kunnen veroorzaken (verzamel cijfers, meningen, ervaringen)
-- Zoek uit hoe je dit kunt testen (hoe kun je een feature ‘uitzetten’)
-- Vind een aantal sites waar dit ook problemen oplevert (uit je directe omgeving)
-- Beschrijf hoe je dit kan fiksen
-- Maak hierover een presentatie en neem die woensdag mee, dan gaan we de resultaten bespreken
-Lezen: [Everyone has JavaScript, right?](https://kryogenix.org/code/browser/everyonehasjs.html) en [I Turned Off JavaScript and it was Glorious](https://www.wired.com/2015/11/i-turned-off-javascript-for-a-whole-week-and-it-was-glorious/)
+## Code Examples
+
+My Router does alot in its code, It checks for the hash and gets the API in.
+If the hash corresponds with the `routie` it will render the web pages.
+```Javascript
+var routes = {
+
+  apiPromise: function() {
+    return api.init()
+      .then(
+        function(data) {
+          localStorage.setItem('trendingData', JSON.stringify(data))
+          window.location.hash = '#trending'
+        })
+      .catch(function(err) {
+        console.log('error', err);
+        routie('notFound')
+      })
+  },
+
+  init: function() {
+    routie({
+      'notFound': function() {
+        template.apiNotFound();
+      },
+      'trending': function() {
+        var data = JSON.parse(localStorage.getItem('trendingData'));
+        collection.trending(data)
+        template.overviewRender(collection.list.trendingImages)
+      },
+      'trending/:id': function(id) {
+        var data = JSON.parse(localStorage.getItem('trendingData'));
+        collection.trending(data)
+
+        collection.list.trendingImages.forEach(function(data) {
+          if (data.id == id) {
+            template.detailRender(data)
+          }
+        })
+      }
+    })
+    this.apiPromise()
+  },
+  loader: {
+    show: function show() {
+      htmlElements.loader.classList.remove('hide')
+      htmlElements.loader.classList.add('show')
+    },
+    hide: function hide() {
+      htmlElements.loader.classList.remove('show')
+      htmlElements.loader.classList.add('hide')
+    }
+  }
+};
+```
+
+I made a htmlElements object to help my rendering template.
+
+```Javascript
+var htmlElements = {
+
+  body: document.querySelector('body'),
+  ul: document.createElement('ul'),
+  h1: document.createElement('h1'),
+  p: document.createElement('p'),
+  loader: document.querySelector('svg')
+
+}
+
+// exporting
+export default htmlElements
+```
+
+my `API` works one time. and stores the data in the collection module.
+
+```Javascript
+// importing
+import api from './api.js';
+
+var collection = {
+  list: {
+    trendingImages: [],
+  },
+  trending: function(data) {
+    data.data.forEach(item => {
+      this.list.trendingImages.push({
+        id: item.id,
+        title: item.title,
+        image: item.images.preview_gif,
+        source: item.source_tld,
+        image_big: item.images.original
+      })
+    });
+  }
+}
+
+// exporting
+export default collection
+```
+
+## Actors Diagram
+Every part of this app has an role.
+![actors](FlowDiagram.png)
 
 
-### Opdracht 1.2 - Fork je OBA
-Hoe zit het eigenlijk met Progressive Enhancement van je OBA opdracht? Waarschijnlijk kan daar wel het één en ander aan verbeterd worden, dat ding is immers in een week in elkaar gehackt!
+## Flow Diagram
+The flow of `this` app is important. The Actors will play their `role` to  
+make the user happy.
+![flow](ActorsDiagram.png)
 
-Voor deze opdracht ga je toepassen wat je van opdracht 1.1 hebt geleerd.
-- Pas Progressive enhancement toe op je OBA Web App.
-- Check je OBA Web App op de 8 features uit opdracht 1.1 en verbeter de code waar mogelijk.
-- Test  je OBA Web App in het device lab.
-- Laat je OBA Web App voorlezen door een screenreader.
-- Gebruik onderstaande artikelen om je code te optimaliseren.
-[The accessibility mindset](https://24ways.org/2015/the-accessibility-mindset/) en [Accessibility Originates With UX: A BBC iPlayer Case Study](https://www.smashingmagazine.com/2015/02/bbc-iplayer-accessibility-case-study/)
+## My Progress
+It was a difficult app but I have a feeling I learned alot from it. 
+OOP style is interesting but confussing sometimes.  
 
-Beoordelingscriteria
-- Zet je code op Github
-- Schrijf een Readme met:
-  - een beschrijving van de problemen die je hebt gevonden
-  - beschrijf hoe je de problemen hebt opgelost
-  - of hoe je dit zou oplossen (met todo’s) als je genoeg tijd en budget zou hebben
+## What could I have done more?
+Next time I will be focusing on the data a bit more to make it more complex. 
+I also need to play a bit more with `routie` so I can feel comfortable with it. 
+
+## Features
+* [Routie](http://projects.jga.me/routie/)
+* [Handlebars](http://handlebarsjs.com/)
