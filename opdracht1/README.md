@@ -22,15 +22,18 @@ The images are coming from an Api, unfortunately its not really useful to compre
 I'm not using any custom fonts. I've got the privilege from the google web fonts. :clap:
 
 ## Javascript
-
+When you turn off javascript it won't work.  
+This is because of the API. The api is gives all the data
+we need.  
 
 ## Color
 I've tested my
 The contrast in my design is pretty strong.
 ![without color blindness](images/normal.png)![first](images/2.png)![second](images/3.png)![third](images/4.png)![fourth](images/5.png)![fifth](images/5)![six](images/6.png)
 
-
 ## Broadband
+Compression of the css and javascript will be usefull.
+But we can't compress the images since this is from another party.
 
 ## Cookies
 I'm not using cookies on this page :cross:
