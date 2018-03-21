@@ -72,11 +72,11 @@
     <nav>
       <ul class="tab">
 
-        <li><a class="tabs" href="#section-1"  onclick="openTab(event, 'section1')">Sam</a></li>
-        <li><a class="tabs" href="#section-2"  onclick="openTab(event, 'section2')">Fenna</a></li>
-        <li><a class="tabs" href="#section-3"  onclick="openTab(event, 'section3')">Chana</a></li>
-        <li><a class="tabs" href="#section-4"  onclick="openTab(event, 'section4')">Kevin</a></li>
-        <li><a class="tabs" href="#section-5"  onclick="openTab(event, 'section5')">Leonie</a></li>
+        <li><a class="tabs" href="#section-1"  onclick="openTab(event, 'section-1')">Sam</a></li>
+        <li><a class="tabs" href="#section-2"  onclick="openTab(event, 'section-2')">Fenna</a></li>
+        <li><a class="tabs" href="#section-3"  onclick="openTab(event, 'section-3')">Chana</a></li>
+        <li><a class="tabs" href="#section-4"  onclick="openTab(event, 'section-4')">Kevin</a></li>
+        <li><a class="tabs" href="#section-5"  onclick="openTab(event, 'section-5')">Leonie</a></li>
 
       </ul>
     </nav>
@@ -114,7 +114,7 @@
     </ul>
 
   </main>
-  <script>
+ <script>
 
       var i, tabcontent, tabs
 
@@ -128,13 +128,12 @@
           tabcontent[i].style.display = "none"
         }
         //remove active class from tabs
-        document.getElementById(tabNum).style.display = "block";
+        document.getElementById(tabNum).style.display="block";
 
       }
 
-      openTab(null, 'section1')
-
-  </script>
+      openTab(null, 'section-1')
+    </script>
 
 </body>
 

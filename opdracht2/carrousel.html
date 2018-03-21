@@ -8,8 +8,7 @@
 </head>
 
 <style>
-
-  *{
+  * {
     margin: 0;
     padding: 0;
   }
@@ -18,18 +17,22 @@
     background: #2C3E50;
     font-family: 'IBM Plex Serif', serif;
   }
-  main {
+
+  section {
     display: block;
     margin: 2em;
     background: #fff;
     box-shadow: 2px 2px 3px 3px #2e2e2e;
   }
 
-  p, label, input{
+  p,
+  label,
+  input {
     font-family: 'Roboto', sans-serif;
     margin: 0;
   }
-  nav{
+
+  nav {
     position: fixed;
     background: #fff;
   }
@@ -37,60 +40,99 @@
   h1 {
     margin-top: 1em;
     text-align: center;
-    color:#fff;
+    color: #fff;
   }
+
   h2 {
     margin-top: 1em;
   }
-  ul {
+
+  #slides {
     display: block;
     margin: 0;
     padding: 0;
     list-style: none;
-    position:relative;
-    margin:auto;
+    position: relative;
+    margin: auto;
   }
 
-  ul li {
+  #slides li {
     display: inline-block;
     margin: 0;
     padding: 2em;
     box-sizing: border-box;
-    width:100%;
+    width: 100%;
   }
+
   img {
     width: 100%;
   }
-  .active{
-    color:pink;
+
+  .active {
+    color: pink;
   }
+
   figure {
     position: relative;
   }
+
   figcaption {
     position: absolute;
     bottom: 4px;
     background: #E74C3C;
-    padding:1em;
+    padding: 1em;
     color: #fff;
   }
 
-  .showing{
+  .showing {
     opacity: 1;
     z-index: 2;
   }
 
-  @media(min-width: 35em){
-    ul li{
-      width:49%;
+  @media(min-width: 35em) {
+    #slides li {
+      width: 49%;
     }
+  }
+
+  nav {
+    position: fixed;
+    background: #fff;
+  }
+
+  h1 {
+    margin-top: 1em;
+    text-align: center;
+    color: #fff;
+  }
+
+  h2 {
+    margin-top: 1em;
+  }
+
+  #tabContainer {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: auto;
+  }
+
+  #tabContainer li {
+    display: inline-block;
+    margin: 0;
+    padding: 2em;
+    box-sizing: border-box;
+  }
+
+  #tabContainer img {
+    width: 100%;
   }
 </style>
 
 <body>
   <h1>Carrousel</h1>
-
-  <main>
+  <section>
     <ul id="slides">
 
       <li class="slide showing">
@@ -136,11 +178,55 @@
       </li>
 
     </ul>
-  </main>
+  </section>
+
+  <h1>Tabbladen</h1>
+  <section>
+    <nav>
+      <ul class="tab">
+        <li><a class="tabs" href="#section-1" onclick="openTab(event, 'section1')">Sam</a></li>
+        <li><a class="tabs" href="#section-2" onclick="openTab(event, 'section2')">Fenna</a></li>
+        <li><a class="tabs" href="#section-3" onclick="openTab(event, 'section3')">Chana</a></li>
+        <li><a class="tabs" href="#section-4" onclick="openTab(event, 'section4')">Kevin</a></li>
+        <li><a class="tabs" href="#section-5" onclick="openTab(event, 'section5')">Leonie</a></li>
+      </ul>
+    </nav>
+
+    <ul id='tabContainer'>
+      <li id="section-1" class="tabcontent">
+        <img src="images/plank.jpg" alt="placeholder">
+        <h2>Sam</h2>
+        <p>Some awesome text about life and stuff.</p>
+      </li>
+
+      <li id="section-2" class="tabcontent">
+        <img src="images/plank.jpg" alt="placeholder">
+        <h2>Fenna</h2>
+        <p>Some awesome text about life and stuff.</p>
+      </li>
+
+      <li id="section-3" class="tabcontent">
+        <img src="images/plank.jpg" alt="placeholder">
+        <h2>Chana</h2>
+        <p>Some awesome text about life and stuff.</p>
+      </li>
+
+      <li id="section-4" class="tabcontent">
+        <img src="images/plank.jpg" alt="placeholder">
+        <h2>Kevin</h2>
+        <p>Some awesome text about life and stuff.</p>
+      </li>
+
+      <li id="section-5" class="tabcontent">
+        <img src="images/plank.jpg" alt="placeholder">
+        <h2>Leonie</h2>
+        <p>Some awesome text about life and stuff.</p>
+      </li>
+    </ul>
+  </section>
 
   <script>
-    
-    if('querySelectorAll') {
+    if ('querySelectorAll') {
       var slides = document.querySelectorAll('#slides .slide')
     } else {
       var slides = document.getElementsByTagName('ul li')
@@ -151,10 +237,27 @@
 
     function nextSlide() {
       slides[currentSlide].className = 'slide';
-      currentSlide = (currentSlide+1) % slides.length;
+      currentSlide = (currentSlide + 1) % slides.length;
       slides[currentSlide].className = 'slide showing'
     }
 
+    var i, tabcontent, tabs
+
+    tabs = document.getElementsByClassName("tabs")
+    tabcontent = document.getElementsByClassName("tabcontent")
+
+    function openTab(e, tabNum) {
+
+      // Hide the content
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none"
+      }
+      //remove active class from tabs
+      document.getElementById(tabNum).style.display = "block";
+
+    }
+
+    openTab(null, 'section-1')
   </script>
 
 </body>
