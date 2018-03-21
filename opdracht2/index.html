@@ -16,6 +16,7 @@
   html {
     background: #2C3E50;
     font-family: 'IBM Plex Serif', serif;
+    scroll-behavior: smooth;
   }
 
   section {
@@ -44,20 +45,29 @@
   }
 
   #slides {
+    position: relative;
     display: block;
     margin: 0;
     padding: 0;
     list-style: none;
     position: relative;
     margin: auto;
+    height:516px;
   }
 
-  #slides li {
-    display: inline-block;
-    margin: 0;
-    padding: 2em;
-    box-sizing: border-box;
+  .slide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
     width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
   }
 
   img {
@@ -87,7 +97,7 @@
 
   @media(min-width: 35em) {
     #slides li {
-      width: 49%;
+      width: 100%;
     }
   }
 
@@ -128,6 +138,7 @@
     display: inline-block;
     margin: 0;
     padding: 2em;
+    padding-top: 0;
     box-sizing: border-box;
   }
 
@@ -190,11 +201,11 @@
   <section>
     <nav>
       <ul class="tab">
-        <li><a class="tabs" href="#section-1" onclick="openTab(event, 'section-1')">Sam</a></li>
-        <li><a class="tabs" href="#section-2" onclick="openTab(event, 'section-2')">Fenna</a></li>
-        <li><a class="tabs" href="#section-3" onclick="openTab(event, 'section-3')">Chana</a></li>
-        <li><a class="tabs" href="#section-4" onclick="openTab(event, 'section-4')">Kevin</a></li>
-        <li><a class="tabs" href="#section-5" onclick="openTab(event, 'section-5')">Leonie</a></li>
+        <li><a class="tabs" href="#section-1">Sam</a></li>
+        <li><a class="tabs" href="#section-2">Fenna</a></li>
+        <li><a class="tabs" href="#section-3">Chana</a></li>
+        <li><a class="tabs" href="#section-4">Kevin</a></li>
+        <li><a class="tabs" href="#section-5">Leonie</a></li>
       </ul>
     </nav>
 
@@ -232,38 +243,66 @@
   </section>
 
   <script>
-    if ('querySelectorAll') {
-      var slides = document.querySelectorAll('#slides .slide')
-    } else {
-      var slides = document.getElementsByTagName('ul li')
-    }
+  // always true, check artikel
+  // if ('querySelectorAllhuhhuih') {
+  //   var slides = document.querySelectorAll('#slides .slide')
+  // } else {
+  //   var slides = document.getElementsByTagName('ul li')
+  // }
+  //
+  (function(){
 
-    var currentSlide = 0;
-    var slideInterval = setInterval(nextSlide, 2000);
+    var app ={
+      carrousel: function(){
+        var slides = document.querySelectorAll('#slides .slide');
+        var currentSlide = 0;
+        var slideInterval = setInterval(nextSlide,2000);
 
-    function nextSlide() {
-      slides[currentSlide].className = 'slide';
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].className = 'slide showing'
-    }
+        function nextSlide() {
+            slides[currentSlide].className = 'slide';
+            currentSlide = (currentSlide+1)%slides.length;
+            slides[currentSlide].className = 'slide showing';
+        }
+      },
 
-    var i, tabcontent, tabs
+      tabs: function(){
 
-    tabs = document.getElementsByClassName("tabs")
-    tabcontent = document.getElementsByClassName("tabcontent")
+        var sections, i, x ,href
 
-    function openTab(e, tabNum) {
+        // pak secties
+        sections = document.getElementsByClassName('tabcontent')
+        navtabs = document.getElementsByClassName('tabs')
 
-      // Hide the content
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none"
+        // pak navigatie
+        for( i = 0 ; i < navtabs.length; i++){
+          navtabs[i].addEventListener('click', function(){
+            href = this.getAttribute('href')
+            var cleanHref = href.replace('#', '')
+            selectSection(cleanHref)
+          })
+        }
+
+        //hide alle secties
+        function selectSection(cleanHref){
+
+          for (x = 0; x < sections.length; x++){
+            if(cleanHref === sections[x].id){
+              sections[x].style.display="block"
+            } else{
+              sections[x].style.display="none"
+            }
+          }
+        }
+        //onclick event waarbij je van sectie switch
+      selectSection('section-1')
       }
-      //remove active class from tabs
-      document.getElementById(tabNum).style.display = "block";
-
     }
 
-    openTab(null, 'section-1')
+  app.carrousel()
+  app.tabs()
+
+  })()
+
   </script>
 
 </body>
