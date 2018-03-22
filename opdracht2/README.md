@@ -1,8 +1,26 @@
 # Browser Technologies
-//Robuuste, toegankelijke websites leren bouwen …
+Componenten die ik gemaakt heb.
+* Carrousel
+* Tabbladen
 
-## Opdracht 2 - 1, 2, 3 Feature Detectie
+## Feature Detectie
 //Wat laat je zien als een browser of gebruiker 'enhancement' niet kan tonen of zien? Hoe doe je Feature Detection en wat doe je als een techniek niet werkt?
+
+### Carrousel
+
+### Tabbladen
+
+## Fallbacks
+
+### Carrousel
+
+### Tabbladen
+
+## Testing
+
+### Carrousel
+
+### Tabbladen
 
 Werk 2 componenten uit in een demo. Je onderzoekt hoe je verschillende features door verschillende browsers worden ondersteund en hoe je voor goede fallback kan zorgen. Gebruik [html5test.com](https://html5test.com), [css3test.com](http://css3test.com) en [kangax.github.io/compat-table/es6/](https://kangax.github.io/compat-table/es6/)
 
