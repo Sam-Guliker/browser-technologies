@@ -8,13 +8,13 @@ Componenten die ik gemaakt heb.
 
 ### Carrousel
 Chrome:  
-![chrome testing]('/images/chrometesting.png')
+![chrome testing]('./images/chrometesting.png')
 
 Firefox:  
-![firefox testing]('/images/firefoxtesting.png')
+![firefox testing]('./images/firefoxtesting.png')
 
 Safari:  
-![safari testing]('/images/safaritesting.png')
+![safari testing]('./images/safaritesting.png')
 
 
 
