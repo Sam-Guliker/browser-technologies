@@ -7,6 +7,16 @@ Componenten die ik gemaakt heb.
 //Wat laat je zien als een browser of gebruiker 'enhancement' niet kan tonen of zien? Hoe doe je Feature Detection en wat doe je als een techniek niet werkt?
 
 ### Carrousel
+Chrome:
+![chrome testing]('images/chrometesting.png')
+
+Firefox:
+![firefox testing]('images/firefoxtesting.png')
+
+Safari:
+![safari testing]('images/safaritesting.png')
+
+
 
 ### Tabbladen
 

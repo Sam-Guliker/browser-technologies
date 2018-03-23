@@ -33,7 +33,6 @@
     margin: 0;
   }
 
-
   h1 {
     margin-top: 1em;
     text-align: center;
@@ -44,18 +43,14 @@
     margin-top: 1em;
   }
 
-  #slides {
-    position: relative;
-    display: block;
+  #slides li {
+    display: inline-block;
     margin: 0;
-    padding: 0;
-    list-style: none;
-    position: relative;
-    margin: auto;
-    height:516px;
+    padding: 2em;
+    box-sizing: border-box;
+    width: 100%;
   }
-
-  .slide {
+  #slides li.carrousel-slide{
     position: absolute;
     left: 0px;
     top: 0px;
@@ -68,6 +63,40 @@
     -moz-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s;
+  }
+
+  #containerSlider {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    margin: auto;
+    height: 424px;
+  }
+
+
+  #slides {
+      position: relative;
+      padding: 0px;
+      margin: 0px;
+      list-style-type: none;
+  }
+
+  .slide {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 1;
+
+      -webkit-transition: opacity 1s;
+      -moz-transition: opacity 1s;
+      -o-transition: opacity 1s;
+      transition: opacity 1s;
   }
 
   img {
@@ -91,14 +120,8 @@
   }
 
   .showing {
-    opacity: 1;
-    z-index: 2;
-  }
-
-  @media(min-width: 35em) {
-    #slides li {
-      width: 100%;
-    }
+      opacity: 1;
+      z-index: 2;
   }
 
   nav ul {
@@ -106,7 +129,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    margin:auto;
+    margin: auto;
   }
 
   nav ul li {
@@ -145,164 +168,174 @@
   #tabContainer img {
     width: 100%;
   }
+
 </style>
 
 <body>
-  <h1>Carrousel</h1>
-  <section>
-    <ul id="slides">
+  <main>
+    <h1>Tabbladen</h1>
+    <section>
+      <nav>
+        <ul class="tab">
+          <li><a class="tabs" href="#section-1">Sam</a></li>
+          <li><a class="tabs" href="#section-2">Fenna</a></li>
+          <li><a class="tabs" href="#section-3">Chana</a></li>
+          <li><a class="tabs" href="#section-4">Kevin</a></li>
+          <li><a class="tabs" href="#section-5">Leonie</a></li>
+        </ul>
+      </nav>
 
-      <li class="slide showing">
-        <figure>
-          <img src="images/plank.jpg" alt="">
-          <figcaption>Sam</figcaption>
-        </figure>
-      </li>
+      <ul id='tabContainer'>
+        <li id="section-1" class="tabcontent">
+          <img src="images/plank.jpg" alt="placeholder">
+          <h2>Sam</h2>
+          <p>Some awesome text about life and stuff.</p>
+        </li>
 
-      <li class="slide">
-        <figure>
-          <img src="images/plank.jpg" alt="">
-          <figcaption>Bob</figcaption>
-        </figure>
-      </li>
+        <li id="section-2" class="tabcontent">
+          <img src="images/plank.jpg" alt="placeholder">
+          <h2>Fenna</h2>
+          <p>Some awesome text about life and stuff.</p>
+        </li>
 
-      <li class="slide">
-        <figure>
-          <img src="images/plank.jpg" alt="">
-          <figcaption>skurr</figcaption>
-        </figure>
-      </li>
+        <li id="section-3" class="tabcontent">
+          <img src="images/plank.jpg" alt="placeholder">
+          <h2>Chana</h2>
+          <p>Some awesome text about life and stuff.</p>
+        </li>
 
-      <li class="slide">
-        <figure>
-          <img src="images/plank.jpg" alt="">
-          <figcaption>ding</figcaption>
-        </figure>
-      </li>
+        <li id="section-4" class="tabcontent">
+          <img src="images/plank.jpg" alt="placeholder">
+          <h2>Kevin</h2>
+          <p>Some awesome text about life and stuff.</p>
+        </li>
 
-      <li class="slide">
-        <figure>
-          <img src="images/plank.jpg" alt="">
-          <figcaption>dang</figcaption>
-        </figure>
-      </li>
-
-      <li class="slide">
-        <figure>
-          <img src="images/plank.jpg" alt="">
-          <figcaption>bangbang</figcaption>
-        </figure>
-      </li>
-
-    </ul>
-  </section>
-
-  <h1>Tabbladen</h1>
-  <section>
-    <nav>
-      <ul class="tab">
-        <li><a class="tabs" href="#section-1">Sam</a></li>
-        <li><a class="tabs" href="#section-2">Fenna</a></li>
-        <li><a class="tabs" href="#section-3">Chana</a></li>
-        <li><a class="tabs" href="#section-4">Kevin</a></li>
-        <li><a class="tabs" href="#section-5">Leonie</a></li>
+        <li id="section-5" class="tabcontent">
+          <img src="images/plank.jpg" alt="placeholder">
+          <h2>Leonie</h2>
+          <p>Some awesome text about life and stuff.</p>
+        </li>
       </ul>
-    </nav>
+    </section>
+    <h1>Carrousel</h1>
 
-    <ul id='tabContainer'>
-      <li id="section-1" class="tabcontent">
-        <img src="images/plank.jpg" alt="placeholder">
-        <h2>Sam</h2>
-        <p>Some awesome text about life and stuff.</p>
-      </li>
+    <section>
+      <ul id="slides">
+        <li>
+          <figure>
+            <img src="images/plank.jpg" alt="">
+            <figcaption>Sam</figcaption>
+          </figure>
+        </li>
 
-      <li id="section-2" class="tabcontent">
-        <img src="images/plank.jpg" alt="placeholder">
-        <h2>Fenna</h2>
-        <p>Some awesome text about life and stuff.</p>
-      </li>
+        <li>
+          <figure>
+            <img src="images/plank.jpg" alt="">
+            <figcaption>Bob</figcaption>
+          </figure>
+        </li>
 
-      <li id="section-3" class="tabcontent">
-        <img src="images/plank.jpg" alt="placeholder">
-        <h2>Chana</h2>
-        <p>Some awesome text about life and stuff.</p>
-      </li>
+        <li>
+          <figure>
+            <img src="images/plank.jpg" alt="">
+            <figcaption>skurr</figcaption>
+          </figure>
+        </li>
 
-      <li id="section-4" class="tabcontent">
-        <img src="images/plank.jpg" alt="placeholder">
-        <h2>Kevin</h2>
-        <p>Some awesome text about life and stuff.</p>
-      </li>
+        <li>
+          <figure>
+            <img src="images/plank.jpg" alt="">
+            <figcaption>ding</figcaption>
+          </figure>
+        </li>
 
-      <li id="section-5" class="tabcontent">
-        <img src="images/plank.jpg" alt="placeholder">
-        <h2>Leonie</h2>
-        <p>Some awesome text about life and stuff.</p>
-      </li>
-    </ul>
-  </section>
+        <li>
+          <figure>
+            <img src="images/plank.jpg" alt="">
+            <figcaption>dang</figcaption>
+          </figure>
+        </li>
+
+        <li>
+          <figure>
+            <img src="images/plank.jpg" alt="">
+            <figcaption>bangbang</figcaption>
+          </figure>
+        </li>
+
+      </ul>
+    </section>
+  </main>
 
   <script>
-  // always true, check artikel
-  // if ('querySelectorAllhuhhuih') {
-  //   var slides = document.querySelectorAll('#slides .slide')
-  // } else {
-  //   var slides = document.getElementsByTagName('ul li')
-  // }
-  //
-  (function(){
+    (function() {
 
-    var app ={
-      carrousel: function(){
-        var slides = document.querySelectorAll('#slides .slide');
-        var currentSlide = 0;
-        var slideInterval = setInterval(nextSlide,2000);
+      var app = {
+        carrousel: function() {
 
-        function nextSlide() {
-            slides[currentSlide].className = 'slide';
-            currentSlide = (currentSlide+1)%slides.length;
-            slides[currentSlide].className = 'slide showing';
-        }
-      },
+          // pak de Slider
+          // pak de slides
 
-      tabs: function(){
+          var slides, currentSlide, slideInterval, lastSection, y, h
 
-        var sections, i, x ,href
+          lastSection = document.querySelector('section:last-child').style.boxShadow='none'
+          slides = document.querySelectorAll('#slides li');
 
-        // pak secties
-        sections = document.getElementsByClassName('tabcontent')
-        navtabs = document.getElementsByClassName('tabs')
+          currentSlide = 0;
+          slideInterval = setInterval(nextSlide,2000);
 
-        // pak navigatie
-        for( i = 0 ; i < navtabs.length; i++){
-          navtabs[i].addEventListener('click', function(){
-            href = this.getAttribute('href')
-            var cleanHref = href.replace('#', '')
-            selectSection(cleanHref)
-          })
-        }
+          for (y = 0;  y < slides.length; y++){
+            slides[y].style.padding = 0;
+          }
 
-        //hide alle secties
-        function selectSection(cleanHref){
+          for (h = 0;  h < slides.length; h++){
+            slides[h].className =' slide'
+          }
 
-          for (x = 0; x < sections.length; x++){
-            if(cleanHref === sections[x].id){
-              sections[x].style.display="block"
-            } else{
-              sections[x].style.display="none"
+          function nextSlide() {
+              slides[currentSlide].className = 'slide';
+              currentSlide = (currentSlide+1)%slides.length;
+              slides[currentSlide].className = 'slide showing';
+          }
+        },
+
+        tabs: function() {
+
+          var sections, i, x, href
+
+          // pak secties
+          sections = document.getElementsByClassName('tabcontent')
+          navtabs = document.getElementsByClassName('tabs')
+
+          // pak navigatie
+          for (i = 0; i < navtabs.length; i++) {
+            navtabs[i].addEventListener('click', function() {
+              href = this.getAttribute('href')
+              var cleanHref = href.replace('#', '')
+              selectSection(cleanHref)
+            })
+          }
+
+          //hide alle secties
+          function selectSection(cleanHref) {
+
+            for (x = 0; x < sections.length; x++) {
+              if (cleanHref === sections[x].id) {
+                sections[x].style.display = "block"
+              } else {
+                sections[x].style.display = "none"
+              }
             }
           }
+          //onclick event waarbij je van sectie switch
+          selectSection('section-1')
         }
-        //onclick event waarbij je van sectie switch
-      selectSection('section-1')
       }
-    }
 
-  app.carrousel()
-  app.tabs()
+      app.carrousel()
+      app.tabs()
 
-  })()
-
+    })()
   </script>
 
 </body>
