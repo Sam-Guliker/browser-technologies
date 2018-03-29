@@ -29,6 +29,7 @@ Changing to mario theme. The sounds will be replaced with mario sounds and will 
 ## Feature detections
 I've used most of the mast basic javascript to prevent the feature issues by browsers. I used some of the most basic JS functions that work in every browser no matter what version or what browser there is.
 
+### Preventing
 ```javascript
 var html = document.getElementsByTagName('html')[0]
 
@@ -51,6 +52,9 @@ function marioSwitch(){
 
 ```
 
+### Feature detection
+Will check if the `addEventListener` is accessible in the document.  
+If it isn't in the document use the attachEvent.
 ```Javascript
 function onClickEvent(el, item){
   if (document.addEventListener) {
@@ -75,7 +79,8 @@ keys.forEach(key => key.addEventListener('click', playSound))
 
 ```
 
-Es5 using const and arrowkeys
+Es5 instead of using arrow and for each functions I used for loops.  
+
 ```Javascript
 var keys = document.querySelectorAll('.key');
 var audio = document.querySelector("audio[data-key=" + "'" + keycode + "'" + "]");
@@ -92,3 +97,10 @@ for (var i = 0; i < keys.length; i++){
 
 
 ```
+## Features die wel en niet ondersteund worden door browsers
+
+## accessibility
+
+## User experience
+
+## Kleur en contrast
