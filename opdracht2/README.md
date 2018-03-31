@@ -1,5 +1,5 @@
 # Browser Technologies
-Componenten die ik gemaakt heb.
+Components for this assessment
 * Carrousel
 * Tabbladen
 
@@ -12,6 +12,7 @@ Componenten die ik gemaakt heb.
 Not every HTML5 element is supported in the browsers.
 ### ul & li
 `ul` & `li` are html 4 elements that are fully supported on browsers
+
 ![ul](images/ul.png)
 
 `section` is an element that is not fully supported in every     browser such as IE other browsers do have a good support  on this element. section it still is 'cssable'(you can still  style the element.)
@@ -19,6 +20,7 @@ Not every HTML5 element is supported in the browsers.
 ![section](images/section.png)
 
 `figcaption` has the same issue as the `section`
+
 ![figcaption](images/figcaption.png)
 
 `addEventListener` Is strongly supported in browsers, yet IE does it again.
