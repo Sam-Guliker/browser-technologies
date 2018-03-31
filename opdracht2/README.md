@@ -3,32 +3,29 @@ Componenten die ik gemaakt heb.
 * Carrousel
 * Tabbladen
 
-## Feature Detectie
-//Wat laat je zien als een browser of gebruiker 'enhancement' niet kan tonen of zien? Hoe doe je Feature Detection en wat doe je als een techniek niet werkt?
+## Feature dectection
+> Feature dectection involves working out whether a supports a certain block of code, and running a different code dependent on whether it does (or doesn't), so that the browser can always provide a working experience.
 
-### Carrousel
-#### Chrome:  
-![chrome testing](images/chrometesting.png)
+-[MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection)
 
-#### Firefox:  
-![firefox testing](images/firefoxtesting.png)
+## Support
+Niet alle HTML elementen worden in elke browser gesupport.
 
-#### Safari:  
-![safari testing](images/safaritesting.png)
+### ul & li
+`ul` & `li` are html 4 elements that are fully supported on browsers
+![ul](images/ul.png)
 
-### Tabbladen
+`section` is an element that is not fully supported in every   browser such as IE other browsers do have a good support  on this element. section it still is 'cssable'(you can still  style the element.).
+![section](images/section.png)
 
-## Fallbacks
+`figcaption` has the same issue as the `section`
+![figcaption](images/figcaption.png)
 
-### Carrousel
+`addEventListener` Is strongly supported in browsers, yet IE does it again.
+![addEventListener](images/addevent.png)
 
-### Tabbladen
 
 ## Testing
-
-### Carrousel
-
-### Tabbladen
 
 Werk 2 componenten uit in een demo. Je onderzoekt hoe je verschillende features door verschillende browsers worden ondersteund en hoe je voor goede fallback kan zorgen. Gebruik [html5test.com](https://html5test.com), [css3test.com](http://css3test.com) en [kangax.github.io/compat-table/es6/](https://kangax.github.io/compat-table/es6/)
 

@@ -270,12 +270,20 @@
   <script>
     (function() {
 
+      function clickEvent(el, callback) {
+        if(document.addEventListener){
+          el.addEventListener('click', callback)
+        } else{
+          el.attachEvent('onclick', callback)
+        }
+      }
+      
+
       var app = {
         carrousel: function() {
 
           // pak de Slider
           // pak de slides
-
           var slides, currentSlide, slideInterval, lastSection, y, h
 
           lastSection = document.querySelector('section:last-child').style.boxShadow='none'
