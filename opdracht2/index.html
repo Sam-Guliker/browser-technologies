@@ -58,10 +58,6 @@
     height: 100%;
     opacity: 0;
     z-index: 1;
-
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -o-transition: opacity 1s;
     transition: opacity 1s;
   }
 
@@ -75,7 +71,6 @@
     margin: auto;
     height: 424px;
   }
-
 
   #slides {
       position: relative;
@@ -92,10 +87,6 @@
       height: 100%;
       opacity: 0;
       z-index: 1;
-
-      -webkit-transition: opacity 1s;
-      -moz-transition: opacity 1s;
-      -o-transition: opacity 1s;
       transition: opacity 1s;
   }
 
@@ -167,6 +158,25 @@
 
   #tabContainer img {
     width: 100%;
+  }
+
+  @supports(scroll-behavior: smooth){
+    html{
+      scroll-behavior: smooth;
+    }
+  }
+  @supports(box-shadow: 2px 2px 3px 3px #2e2e2e;){
+    section{
+      box-shadow: 2px 2px 3px 3px #2e2e2e;
+    }
+  }
+  @supports(transition: opacity 1s;){
+    .slide{
+      transition: opacity 1s;
+    }
+    #slides li.carrousel-slide{
+      transition: opacity 1s;
+    }
   }
 
 </style>
@@ -277,10 +287,18 @@
           el.attachEvent('onclick', callback)
         }
       }
-      
+
 
       var app = {
         carrousel: function() {
+
+          function clickEvent(el, callback) {
+            if(document.addEventListener){
+              el.addEventListener('click', callback)
+            } else{
+              el.attachEvent('onclick', callback)
+            }
+          }
 
           // pak de Slider
           // pak de slides
@@ -309,15 +327,17 @@
 
         tabs: function() {
 
-          var sections, i, x, href
+          var sections, i, x, href, a
 
           // pak secties
           sections = document.getElementsByClassName('tabcontent')
           navtabs = document.getElementsByClassName('tabs')
+          a = document.querySelector('a')
 
           // pak navigatie
           for (i = 0; i < navtabs.length; i++) {
             navtabs[i].addEventListener('click', function() {
+              preventDefault()
               href = this.getAttribute('href')
               var cleanHref = href.replace('#', '')
               selectSection(cleanHref)
@@ -335,6 +355,7 @@
               }
             }
           }
+
           //onclick event waarbij je van sectie switch
           selectSection('section-1')
         }

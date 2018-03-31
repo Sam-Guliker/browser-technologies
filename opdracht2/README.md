@@ -24,8 +24,40 @@ Niet alle HTML elementen worden in elke browser gesupport.
 `addEventListener` Is strongly supported in browsers, yet IE does it again.
 ![addEventListener](images/addevent.png)
 
+## Fallback
+### Javascript
+With javascript I'm using the `addEventListener`, which is strongly supported but  not for IE. This is why I got a fallback for it.
 
+```javascript
+function clickEvent(el, callback) {
+  if(document.addEventListener){
+    el.addEventListener('click', callback)
+  } else{
+    el.attachEvent('onclick', callback)
+  }
+}
+```
+### support
+`@support` is a feature query. Feature query will check on the browser  support if you can use a css propperty.
+
+#### Example
+```css
+@supports(scroll-behavior: smooth){
+  html{
+    scroll-behavior: smooth;
+  }
+}
+```
 ## Testing
+
+
+
+## Resources
+* [diveintohtml5](http://diveintohtml5.info/detect.html)
+* [quirksmode.org](https://www.quirksmode.org/js/support.html)
+* [canIuse](https://caniuse.com/)
+* [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
+
 
 Werk 2 componenten uit in een demo. Je onderzoekt hoe je verschillende features door verschillende browsers worden ondersteund en hoe je voor goede fallback kan zorgen. Gebruik [html5test.com](https://html5test.com), [css3test.com](http://css3test.com) en [kangax.github.io/compat-table/es6/](https://kangax.github.io/compat-table/es6/)
 
