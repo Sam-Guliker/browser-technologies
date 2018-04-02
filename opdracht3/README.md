@@ -1,56 +1,17 @@
-# Browser Technologies
-//Robuuste, toegankelijke websites leren bouwen …
-
 ## Opdracht 3 - Progressive Enhanced Browser Technologies
-//Browser Technologies onderzoeken en implementeren als enhancement. Basic functionaliteit van een use case doorgronden.
-
-Maak een demo op basis van een use case. Zorg dat alle gebruikers, met alle browsers, in iedere context minimaal de core functionaliteit te zien/horen/voelen krijgen. Bouw je demo in 3 lagen, volgens het principe van Progressive Enhancement. Gebruik als enhanced feature een (hippe, innovatieve, vooruitstrevende) Browser Technologie die je gaat onderzoeken op functionaliteit, toegankelijkheid en (browser) ondersteuning.
-
-Beoordelingscriteria
-- De code staat in een repository op GitHub
-- Er is een Readme toegevoegd met daarin beschreven:
-  - een beschrijving van de core functionality
-  - een beschrijving van de feature(s)/Browser Technologies
-  - welke browser de feature(s) wel/niet ondersteunen
-  - een beschrijving van de accessibility issues die zijn onderzocht
-- De demo is opgebouwd in 3 lagen, volgens het principe van Progressive Enhancement
-- De user experience van de demo is goed
-  - de leesbaarheidsregels zijn toegepast, contrast en kleuren kloppen
-  - het heeft een gebruiksvriendelijke interface, met gebruikmaking van affordance en feedback op de interactieve elementen
-- Student kan uitleggen wat Progressive Enhancement en Feature Detectie is en hoe dit toe te passen in Web Development.
-
+![example](images/example.gif)
 ## Core functionality
-Making sound on keypress or on click.
-To make the core functionality the app needs to be accessible through server-side.
+The core functionality of my page will be to play sounds
+through the web browser.
 
 ## Enhancement
-Changing to mario theme. The sounds will be replaced with mario sounds and will get some animations.
+When you can run javascript you've got the power to play a drumkit.  
+The drumkit allows you to make a beat however you want! :sunglasses:
 
 ## Feature detections
-I've used most of the mast basic javascript to prevent the feature issues by browsers. I used some of the most basic JS functions that work in every browser no matter what version or what browser there is.
-
-### Preventing
-```javascript
-var html = document.getElementsByTagName('html')[0]
-
-for (var i = 0; i < keys.length; i++){
-  keys[i].addEventListener('click', playSound)
-}
-
-function marioSwitch(){
-  var y = 0;
-  var colours = ['#6D8BFB','#E05F26','#B9F538',"fff"]
-  html.style.backgroundColor = "#fff";
-  h1.style.color ="#6D8BFB"
-  h1.innerHTML = "Mario time"
-
-  for ( y; y<keys.length; y++){
-    keys[y].style.color = "#B9F538";
-  }
-}
-
-
-```
+I've used most of the mast basic javascript to prevent the feature   
+issues by browsers. I used some of the most basic JS functions that work in  
+every browser no matter what version or what browser there is.
 
 ### Feature detection
 Will check if the `addEventListener` is accessible in the document.  
@@ -97,10 +58,36 @@ for (var i = 0; i < keys.length; i++){
 
 
 ```
-## Features die wel en niet ondersteund worden door browsers
+## Feature support
 
-## accessibility
+### Audio Element
+The audio element is a strong element to use, it got great support.
+![audioelement](images/audioelement.png)
 
-## User experience
+### ES5
+I've written all my code in ES5 so the browsers that can be supported will get the good ol' javascript :wink:.
 
-## Kleur en contrast
+#### Support
+
+![es5](images/es5.png)
+
+### DOM Manipulation.
+To make sure I was using the most supported code for javascript I'm using code like `getElementsByTagName`.
+
+#### Support
+
+![dom](images/dom.png)
+
+
+## Accessibility
+The user can use the tabs to navigate if he or she has to.
+When the javascript works there is no reason to use tabs, you
+can enjoy the enhancement! :smile:
+
+## Colour and contrast
+Chrome also has its own contrast checker.  
+I first used `F16562` as an highlight colour, but I found out  
+that it doesn't have enough contrast with my background.
+I used `#FF726F` instead.
+
+![color contrast](images/colorcontrast.png)
