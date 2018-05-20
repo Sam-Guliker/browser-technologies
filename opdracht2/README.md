@@ -6,6 +6,10 @@ Components for this assessment
 ## Feature dectection
 > Feature dectection involves working out whether a supports a certain block of code, and running a different code dependent on whether it does (or doesn't), so that the browser can always provide a working experience.
 
+## How about preventing??
+Ofc we can use Feature dectection but why not combined with preventing issues. For example the UL and LI components in HTML. They are strongly supported for every browser.
+[link]()
+
 -[MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection)
 
 ## Support
@@ -26,6 +30,30 @@ Not every HTML5 element is supported in the browsers.
 `addEventListener` Is strongly supported in browsers, yet IE does it again.
 
 ![addEventListener](images/addevent.png)
+
+## CSS propperies
+
+``` css
+@supports(scroll-behavior: smooth){
+  html{
+    scroll-behavior: smooth;
+  }
+}
+@supports(box-shadow: 2px 2px 3px 3px #2e2e2e;){
+  section{
+    box-shadow: 2px 2px 3px 3px #2e2e2e;
+  }
+}
+@supports(transition: opacity 1s;){
+  .slide{
+    transition: opacity 1s;
+  }
+  #slides li.carrousel-slide{
+    transition: opacity 1s;
+  }
+}
+
+```
 
 ## Fallback
 ### Javascript
