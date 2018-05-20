@@ -91,6 +91,7 @@
   }
 
   img {
+    max-height: 29.75em;
     width: 100%;
   }
 
@@ -99,6 +100,7 @@
   }
 
   figure {
+    margin-bottom: 2em;
     position: relative;
   }
 
@@ -148,16 +150,15 @@
     margin: auto;
   }
 
+  .tabcontent {
+    transition: 0.4s all ease-in-out;
+  }
   #tabContainer li {
     display: inline-block;
     margin: 0;
     padding: 2em;
     padding-top: 0;
     box-sizing: border-box;
-  }
-
-  #tabContainer img {
-    width: 100%;
   }
 
   @supports(scroll-behavior: smooth){
@@ -197,31 +198,31 @@
 
       <ul id='tabContainer'>
         <li id="section-1" class="tabcontent">
-          <img src="images/plank.jpg" alt="placeholder">
+          <img src="images/tinified/1.jpg" alt="placeholder">
           <h2>Sam</h2>
           <p>Some awesome text about life and stuff.</p>
         </li>
 
         <li id="section-2" class="tabcontent">
-          <img src="images/plank.jpg" alt="placeholder">
+          <img src="images/tinified/2.jpg" alt="placeholder">
           <h2>Fenna</h2>
           <p>Some awesome text about life and stuff.</p>
         </li>
 
         <li id="section-3" class="tabcontent">
-          <img src="images/plank.jpg" alt="placeholder">
+          <img src="images/tinified/3.jpg" alt="placeholder">
           <h2>Chana</h2>
           <p>Some awesome text about life and stuff.</p>
         </li>
 
         <li id="section-4" class="tabcontent">
-          <img src="images/plank.jpg" alt="placeholder">
+          <img src="images/tinified/4.jpg" alt="placeholder">
           <h2>Kevin</h2>
           <p>Some awesome text about life and stuff.</p>
         </li>
 
         <li id="section-5" class="tabcontent">
-          <img src="images/plank.jpg" alt="placeholder">
+          <img src="images/tinified/5.jpg" alt="placeholder">
           <h2>Leonie</h2>
           <p>Some awesome text about life and stuff.</p>
         </li>
@@ -233,43 +234,36 @@
       <ul id="slides">
         <li>
           <figure>
-            <img src="images/plank.jpg" alt="">
+            <img src="images/tinified/1.jpg" alt="">
             <figcaption>Sam</figcaption>
           </figure>
         </li>
 
         <li>
           <figure>
-            <img src="images/plank.jpg" alt="">
+            <img src="images/tinified/2.jpg"alt="">
             <figcaption>Bob</figcaption>
           </figure>
         </li>
 
         <li>
           <figure>
-            <img src="images/plank.jpg" alt="">
+            <img src="images/tinified/3.jpg"alt="">
             <figcaption>skurr</figcaption>
           </figure>
         </li>
 
         <li>
           <figure>
-            <img src="images/plank.jpg" alt="">
+            <img src="images/tinified/4.jpg"alt="">
             <figcaption>ding</figcaption>
           </figure>
         </li>
 
         <li>
           <figure>
-            <img src="images/plank.jpg" alt="">
+            <img src="images/tinified/5.jpg"alt="">
             <figcaption>dang</figcaption>
-          </figure>
-        </li>
-
-        <li>
-          <figure>
-            <img src="images/plank.jpg" alt="">
-            <figcaption>bangbang</figcaption>
           </figure>
         </li>
 
@@ -280,28 +274,9 @@
   <script>
     (function() {
 
-      function clickEvent(el, callback) {
-        if(document.addEventListener){
-          el.addEventListener('click', callback)
-        } else{
-          el.attachEvent('onclick', callback)
-        }
-      }
-
-
       var app = {
         carrousel: function() {
 
-          function clickEvent(el, callback) {
-            if(document.addEventListener){
-              el.addEventListener('click', callback)
-            } else{
-              el.attachEvent('onclick', callback)
-            }
-          }
-
-          // pak de Slider
-          // pak de slides
           var slides, currentSlide, slideInterval, lastSection, y, h
 
           lastSection = document.querySelector('section:last-child').style.boxShadow='none'
@@ -320,7 +295,7 @@
 
           function nextSlide() {
               slides[currentSlide].className = 'slide';
-              currentSlide = (currentSlide+1)%slides.length;
+              currentSlide = (currentSlide+1) % slides.length;
               slides[currentSlide].className = 'slide showing';
           }
         },
@@ -336,12 +311,21 @@
 
           // pak navigatie
           for (i = 0; i < navtabs.length; i++) {
-            navtabs[i].addEventListener('click', function() {
-              preventDefault()
-              href = this.getAttribute('href')
-              var cleanHref = href.replace('#', '')
-              selectSection(cleanHref)
-            })
+            if(window.addEventListener) {
+              navtabs[i].addEventListener('click', function(event) {
+                href = this.getAttribute('href')
+                var cleanHref = href.replace('#', '')
+                selectSection(cleanHref)
+                event.preventDefault()
+              })
+            } else {
+              navtabs[i].attachEvent('onclick', function(event) {
+                href = this.getAttribute('href')
+                var cleanHref = href.replace('#', '')
+                selectSection(cleanHref)
+                event.preventDefault()
+              })
+            }
           }
 
           //hide alle secties
