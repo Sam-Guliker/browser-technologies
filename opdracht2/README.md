@@ -29,16 +29,27 @@ Not every HTML5 element is supported in the browsers.
 
 ## Fallback
 ### Javascript
-With javascript I'm using the `addEventListener`, which is strongly supported but  not for IE. This is why I got a fallback for it.
+With javascript I'm using the `addEventListener`, which is strongly supported but not for IE. This is why I got a fallback for it.
 
 ```javascript
-function clickEvent(el, callback) {
-  if(document.addEventListener){
-    el.addEventListener('click', callback)
-  } else{
-    el.attachEvent('onclick', callback)
+for (i = 0; i < navtabs.length; i++) {
+  if(window.addEventListener) {
+    navtabs[i].addEventListener('click', function(event) {
+      href = this.getAttribute('href')
+      var cleanHref = href.replace('#', '')
+      selectSection(cleanHref)
+      event.preventDefault()
+    })
+  } else {
+    navtabs[i].attachEvent('onclick', function(event) {
+      href = this.getAttribute('href')
+      var cleanHref = href.replace('#', '')
+      selectSection(cleanHref)
+      event.preventDefault()
+    })
   }
 }
+
 ```
 ### support
 `@support` is a feature query. Feature query will check on the browser  support if you can use a css propperty.
