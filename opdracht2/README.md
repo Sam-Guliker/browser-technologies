@@ -1,4 +1,5 @@
 # Browser Technologies
+[link](https://sam-guliker.github.io/browser-technologies/opdracht2/index.html)
 Components for this assessment
 * Carrousel
 * Tabbladen
