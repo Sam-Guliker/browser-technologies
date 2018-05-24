@@ -89,7 +89,12 @@ for (i = 0; i < navtabs.length; i++) {
 }
 ```
 ## Testing
-
+![one](images/opdracht2/1.jpg)
+![two](images/opdracht2/2.jpg)
+![three](images/opdracht2/3.jpg)
+![four](images/opdracht2/4.jpg)
+![five](images/opdracht2/5.jpg)
+![six](images/opdracht2/6.jpg)
 
 
 ## Resources
